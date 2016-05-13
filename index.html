@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="romitApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width"/>
+    <title>Demo of wallet custom directive for Romit.</title>
+    <!-- Import fonts from Google -->
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+    <!-- Import font awesome for arrow button symbols -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- NormalizeCSS stylesheet helps browsers to render elements consistently -->
+    <link rel="stylesheet" href="./styles/normalize.css" media="screen" title="no title" charset="utf-8">
+    <!-- Link internal stylesheet (last, so it takes priority) -->
+    <link rel="stylesheet" href="./styles/style.css">
+  </head>
+  <body>
+    <ui-view></ui-view>
+    <!-- ANGULAR -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.min.js"></script>
+    <!-- ANGULAR UI-ROUTER -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.17/angular-ui-router.min.js"></script>
+    <!-- ANGULAR ANIMATE -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-animate.min.js"></script>
+    <!-- APP FILES -->
+    <!--
+    NOTE: I'd usually use a build system like Gulp to compile all angular
+    files into a single JS file called bundle.js, and to compile my SASS into CSS. Gulp is great!
+    -->
+    <script src="./romitApp.js"></script>
+    <script src="./controllers/demoCtrl.js"></script>
+    <script src="./controllers/walletCtrlV1.js"></script>
+    <script src="./controllers/walletCtrlV2.js"></script>
+    <script src="./directives/walletDirV1.js"></script>
+    <script src="./directives/walletDirV2.js"></script>
+    <script src="./services/walletSvc.js"></script>
+    <script src="./services/userSvc.js"></script>
+  </body>
+</html>

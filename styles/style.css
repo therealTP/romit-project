@@ -1,0 +1,195 @@
+/*
+NOTE: I normally use SASS instead of vanilla CSS. I view it as "what CSS should
+have been." But, in the interest of simplicity and being "easy to explain", I'll use vanilla CSS to style the wallet directive.
+*/
+
+/* Global styling */
+
+/* this rule makes the CSS box model make more sense */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 15px;
+  font-family: 'Source Sans Pro';
+}
+
+.ghost-button {
+  background-color: rgba(0,0,0,0);
+  color: white;
+  border: 1px solid white;
+  padding: 5px 0px;
+  font-weight: 300;
+}
+
+/* Wallet styling */
+
+.components-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  padding: 10px 5vw;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.profile-completion {
+  width: 0; /* makes text content wrap */
+  min-width: 100px;
+  flex-grow: 1;
+  border: 1px solid black;
+  padding: 25px;
+  margin-right: 25px;
+}
+
+.wallet-wrapper {
+  flex-grow: 3;
+  background-color: #C3C4CA;
+}
+
+  .wallet-wrapper header {
+    background-color: #2C6D65;
+    color: #F2F5F9;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+  }
+
+    .wallet-wrapper header h3 {
+      display: inline;
+      font-weight: 400;
+      margin: 0;
+    }
+
+    .wallet-wrapper header .ghost-button {
+      width: 30%;
+    }
+
+    .wallet-wrapper header .ghost-button:hover {
+      color: #C3C4CA;
+      border: 1px solid #C3C4CA;
+    }
+
+  .card-carousel {
+    height: 200px;
+    position: relative; /* adding so I can absolutely position nav arrows */
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: stretch;
+    padding: 10px;
+  }
+
+    /* Arrow Styling */
+    .card-carousel > .carousel-arrow {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      padding: 0px 5px;
+    }
+
+      .card-carousel i {
+        color: #F2F5F9;
+        cursor: pointer;
+      }
+
+      /* rules to apply when arrow is grayed out */
+      .card-carousel .arrow-inactive {
+        opacity: 0;
+        cursor: auto;
+      }
+
+    /* Card Styling */
+
+    .card-carousel > .wallet-card {
+      display: none;
+      flex-grow: 1;
+      width: 0; /* this makes width of cards consistent, regardless of content*/
+      background-color: #F2F5F9;
+      margin: 10px;
+      padding: 10px;
+      /* shadow effect stolen from material design */
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    }
+
+      /* class to add (via ngClass) when card becomes "inView" */
+      .card-carousel > .wallet-card.active-card {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+      }
+
+      /* Slightly increase shadow on hover over card*/
+      .card-carousel > .wallet-card:hover {
+        box-shadow: 0 7px 14px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+      }
+
+      .card-carousel > .wallet-card .ghost-button {
+        color: black;
+        border: 1px solid black;
+        width: 100%;
+        /*display: block;*/
+        font-weight: 400;
+      }
+
+        .wallet-card > .ghost-button:hover {
+          border: 1px solid #2C6D65;
+          color: #2C6D65;
+        }
+
+      .wallet-card > h5, .wallet-card > p {
+        margin: 0;
+        text-align: center;
+      }
+
+      .wallet-card > h5 {
+        font-size: 20px;
+      }
+
+      .wallet-card > p {
+        font-family: 'Droid Sans', sans-serif;
+        font-size: 18px;
+      }
+
+      .wallet-card > .card-type-wrapper {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 18px;
+      }
+
+      /* Would need to find a better way to size icons */
+      .wallet-card .card-icon {
+        height: 25px;
+      }
+
+/* fix profile completion component break points */
+@media screen and (max-width: 900px) {
+  .profile-completion {
+    padding: 15px;
+  }
+
+  .wallet-wrapper {
+    flex-grow: 2;
+  }
+}
+
+/* for screens under 600px wide */
+@media screen and (max-width: 600px) {
+  /* stack components on top of eachother, instead of side by side*/
+  .components-wrapper {
+    flex-flow: column nowrap;
+  }
+
+  /* make profile completion placeholder full width */
+  .profile-completion {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 25px;
+  }
+}

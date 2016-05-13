@@ -1,0 +1,37 @@
+<h1>Wallet Directive Demo Page</h1>
+<p>
+  Two separate versions of the wallet directive, using the same template and styling, but receiving wallet data in different ways. The result is the same, it just shows two solutions to the same task.
+</p>
+<p>
+  Each layout includes a placeholder div to represent the "welcome/profile completion" component. This will simulate how the wallet will look on the new dashboard.
+</p>
+<h3>Version 1</h3>
+<p>
+  Wallet data passed in to directive scope from parent scope (the Demo state/ controller)
+  via a dynamic/two-way scope binding (using "=") on the directive definition object.
+</p>
+<div class="components-wrapper">
+  <div class="profile-completion">
+      Welcome/ profile completion component.
+  </div>
+  <!-- wallet data passed into directive via wallet-data attribute-->
+  <wallet-v1 wallet-data="userData.wallet"></wallet-v1>
+</div>
+
+<h3>Version 2</h3>
+<p>
+  Wallet data injected directly into directive scope from a wallet service via its controller, keeping its scope isolated.
+</p>
+<div class="components-wrapper">
+  <div class="profile-completion">
+      Welcome/ profile completion component.
+  </div>
+  <!-- no wallet-data attribute. data passed in through controller.-->
+  <wallet-v2></wallet-v2>
+</div>
+<h3>Next steps?</h3>
+<ul>
+  <li>Refine design with better colors, subtle measurement adjustments, etc.</li>
+  <li>Add animation to wallet that moves cards when scrolling.</li>
+  <li>Experiment with other fonts and color schemes.</li>
+</ul>

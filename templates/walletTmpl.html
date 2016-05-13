@@ -1,0 +1,27 @@
+<div class="wallet-wrapper">
+  <header>
+    <h3>Payment Methods</h3>
+    <button ng-click="addPaymentMethod()" class="ghost-button">Add new</button>
+  </header>
+  <div class="card-carousel">
+    <div class="carousel-arrow carousel-arrow-left" ng-click="prevCard(walletData)">
+      <!-- add inactive arrow class if first card is in view-->
+      <i ng-class="{'arrow-inactive': walletData[0].inView}" class="fa fa-angle-left fa-2x"></i>
+    </div>
+    <div ng-repeat="card in walletData" ng-class="{'active-card': card.inView}" class="wallet-card">
+      <h5>{{card.name}}</h5>
+      <p>
+        {{"*-" + card.digits}}
+      </p>
+      <div class="card-type-wrapper">
+        {{card.type}}
+        <img class="card-icon" src="{{card.img_url}}" />
+      </div>
+      <button ng-click="manageCard()" class="ghost-button">Manage</button>
+    </div>
+    <div class="carousel-arrow carousel-arrow-right" ng-click="nextCard(walletData)">
+      <!-- add inactive arrow class if last card is in view-->
+      <i ng-class="{'arrow-inactive': walletData[walletData.length - 1].inView}" class="fa fa-angle-right fa-2x"></i>
+    </div>
+  </div>
+</div>
