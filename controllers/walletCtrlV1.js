@@ -2,13 +2,16 @@ angular.module('romitApp').controller('walletCtrlV1', walletCtrlV1);
 
 function walletCtrlV1($scope, $window, walletSvc) {
 
+  // point at which widget switches to one card in view
+  var mobileBreak = 700;
+
   // logic to set up how many cards to display at once, based on screen width
-  if ($window.innerWidth > 600) { // if wide:
+  if ($window.innerWidth > mobileBreak) { // if wide:
     // set first two cards in wallet to inView = true
     $scope.walletData[0].inView = true;
     $scope.walletData[1].inView = true;
   }
-  else if ($window.innerWidth <= 600) { // if narrow:
+  else if ($window.innerWidth <= mobileBreak) { // if narrow:
     // set first card in wallet to inView = true;
     $scope.walletData[0].inView = true;
   }

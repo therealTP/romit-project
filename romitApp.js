@@ -14,7 +14,7 @@ function configFcn($stateProvider, $urlRouterProvider) {
     url: '/demo',
     templateUrl: './templates/demoTmpl.html',
     controller: 'demoCtrl',
-    // Method #2 of getting wallet data into wallet directive starts with this:
+    // Method #1 of getting wallet data into wallet directive starts with this:
     // before page loads, load user data from userSvc
     // and make it injectable into the page ctrl
     resolve: {
